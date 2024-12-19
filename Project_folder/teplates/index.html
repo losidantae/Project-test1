@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Threat Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- เพิ่ม Google Font สำหรับการออกแบบ -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- เพิ่ม FontAwesome สำหรับไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cyber Threat Detection System</h1>
+        <p>Welcome, <strong>{{ current_user.id }}</strong>!</p>
+        <button class="scan-btn" onclick="scanTraffic()">Start Scan</button>
+        <div id="alert" class="alert"></div>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        <p class="account-links"><a href="{{ url_for('register') }}">Sign Up</a> | <a href="{{ url_for('reset_password') }}">Forgot Password?</a></p>
+        
+        <!-- ตารางข้อมูลการจับทราฟฟิก -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Source IP</th>
+                    <th>Destination IP</th>
+                    <th>Length</th>
+                </tr>
+            </thead>
+            <tbody id="traffic-data">
+                <!-- Traffic data จะถูกเติมผ่าน JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function scanTraffic() {
+            fetch('/scan', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("alert").innerHTML = data.alert;
+                if (data.alert === 'Cyber attack detected!') {
+                    alert("DDoS or Malware detected!");
+                    document.getElementById("alert").classList.add('alert-danger');
+                    document.getElementById("alert").classList.remove('alert-success');
+                } else {
+                    document.getElementById("alert").classList.add('alert-success');
+                    document.getElementById("alert").classList.remove('alert-danger');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

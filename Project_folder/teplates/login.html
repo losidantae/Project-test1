@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cyber Threat Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="{{ url_for('login') }}" method="post" autocomplete="off">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required autocomplete="username">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required autocomplete="new-password">
+            
+            <button type="submit">Login</button>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="auth-links">
+            <p><a href="{{ url_for('register') }}">Sign Up</a> | <a href="{{ url_for('reset_password') }}">Forgot Password?</a></p>
+        </div>
+    </div>
+</body>
+</html>

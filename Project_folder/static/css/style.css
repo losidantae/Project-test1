@@ -1,0 +1,108 @@
+/* Style ส่วนที่เกี่ยวข้องกับการออกแบบ */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    color: #007bff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+button.scan-btn {
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.scan-btn:hover {
+    background-color: #218838;
+}
+
+.alert {
+    margin-top: 20px;
+    font-size: 1.1em;
+    padding: 15px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+.account-links a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.1em;
+    margin: 10px;
+}
+
+.account-links a:hover {
+    text-decoration: underline;
+}
+
+/* Table Styles */
+table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
