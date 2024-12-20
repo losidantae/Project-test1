@@ -1,1 +1,3 @@
 http://127.0.0.1:5000
+การกดเปิดใน cmd .\venv\Scripts\activate
+เข้าไฟล์ใน cmd cd C:\Users\Lil Tota\Desktop\Program cyber AI\Project-test1
